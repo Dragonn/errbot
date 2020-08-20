@@ -352,8 +352,8 @@ class SlackBackend(ErrBot):
             except Exception as e:
                 log.error('Failed to look up Slack userid for alternate prefix "%s": %s', prefix, e)
 
-        self.bot_alt_prefixes = tuple(x.lower() for x in self.bot_config.BOT_ALT_PREFIXES)
-        log.debug('Converted bot_alt_prefixes: %s', self.bot_config.BOT_ALT_PREFIXES)
+        self.bot_alt_prefixes = tuple(x.lower() for x in converted_prefxes)
+        log.debug('Converted bot_alt_prefixes: %s', converted_prefxes)
 
     def serve_once(self):
         self.sc = SlackClient(self.token, proxies=self.proxies)
